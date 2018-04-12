@@ -12,6 +12,7 @@ export default function GuessForm(props) {
             props.newGuess(inputValue)
 
             event.target.userGuess.value='';
+            event.target.userGuess.focus();
         }}>
             <input type="text" name="userGuess" id="userGuess"
                 className="text" maxLength="3" autoComplete="off"
