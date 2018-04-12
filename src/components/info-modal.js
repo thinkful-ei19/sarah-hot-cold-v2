@@ -3,7 +3,7 @@ import React from 'react';
 import './info-modal.css';
 
 export default function InfoModal(props) {
-    console.log(props)
+    //console.log(props)
     return (
         <div className="overlay" id="modal">
             <div className="content">

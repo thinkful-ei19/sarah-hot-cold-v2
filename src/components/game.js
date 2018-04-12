@@ -58,11 +58,10 @@ class Game extends React.Component {
             answer: Math.floor((Math.random() * 100) + 1),
             feedback: 'Make your guess!'
         })
-        console.log(this.state.answer)
     }
 
     render() {
-        console.log(this.state.displayInfo)
+        console.log(this.state.answer)
     return (
         <div>
             <Header show={(event) => this.showInfo(event)} reset={(event) => this.resetGame(event)} />

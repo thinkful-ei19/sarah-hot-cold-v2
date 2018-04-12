@@ -3,7 +3,7 @@ import React from 'react';
 import './top-nav.css';
 
 export default function TopNav(props) {
-    console.log(props)
+    //console.log(props)
 
     return (
         <nav>
