@@ -3,7 +3,7 @@ import React from 'react';
 import './guess-form.css';
 
 export default function GuessForm(props) {
-    console.log(props)
+    //console.log(props)
 
     return (
         <form onSubmit={(event) => {

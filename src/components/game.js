@@ -4,6 +4,7 @@ import Header from './header';
 import GuessSection from './guess-section';
 import GuessCount  from './guess-count';
 import GuessList from './guess-list';
+import InfoModal from './info-modal';
 
 class Game extends React.Component {
     constructor(props) {
@@ -11,7 +12,8 @@ class Game extends React.Component {
         this.state = {
             guesses: [],
             answer: Math.floor((Math.random() * 100) + 1),
-            feedback: 'Make your guess!'
+            feedback: 'Make your guess!',
+            displayInfo: false
         }
         console.log(this.state.answer)
     }
@@ -24,14 +26,14 @@ class Game extends React.Component {
 
         let feedback;
         if (difference > 60) {
-            feedback = 'Ice cold';
+            feedback = 'Ice cold'
         } else if (difference > 30) {
             feedback = 'Cold'
         } else if (difference > 10) {
             feedback = 'Warm'
         } else if (difference > 5) {
             feedback = 'Hot'
-        } else if (difference > 1) {
+        } else if (difference >= 1) {
             feedback = 'On fire!!'
         } else {
             feedback = 'You guessed it!!! Click NEW GAME to play again'
@@ -43,13 +45,25 @@ class Game extends React.Component {
         });
     }
 
+    showInfo() {
+        
+        this.setState({
+            displayInfo: !this.state.displayInfo
+        });
+    }
+
     render() {
+        console.log(this.state.displayInfo)
     return (
         <div>
-            <Header />
+            <Header show={(event) => this.showInfo(event)} />
             <GuessSection feedback={this.state.feedback} add={(value) => this.makeGuess(value)} />
             <GuessCount count={this.state.guesses.length} />
             <GuessList guesses={this.state.guesses} />
+            {this.state.displayInfo 
+                ? <InfoModal 
+                    show={(event) => this.showInfo(event)} /> 
+                : ''}
         </div>
         );
     }
