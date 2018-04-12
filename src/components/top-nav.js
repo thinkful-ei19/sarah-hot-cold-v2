@@ -10,14 +10,17 @@ export default function TopNav(props) {
             <ul className="clearfix">
                 <li>
                     <a onClick={(event) => {
-                        console.log('clicked')
+                        
                         {props.showInfo(event)}} 
                     }className="what" href="#">
                         What?
                     </a>
                 </li>
                 <li>
-                    <a className="new" href="#">
+                    <a onClick={(event) => {
+                        console.log('clicked')
+                        props.newGame(event)
+                    }} className="new" href="#">
                         + New Game
                     </a>
                 </li>

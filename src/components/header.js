@@ -6,10 +6,10 @@ import InfoModal from './info-modal';
 import './header.css';
 
 export default function Header(props) {
-    
+    console.log(props)
     return (
         <header>
-            <TopNav showInfo={props.show}/>
+            <TopNav showInfo={props.show} newGame={props.reset}/>
             
             <h1>HOT or COLD</h1>
         </header>
