@@ -24,7 +24,7 @@ class Game extends React.Component {
         <div>
             <Header />
             <GuessSection feedback="Make your guess!" add={(value) => this.makeGuess(value)} />
-            <GuessCount count={3} />
+            <GuessCount count={this.state.count} />
             <GuessList guesses={this.state.guesses} />
         </div>
         );

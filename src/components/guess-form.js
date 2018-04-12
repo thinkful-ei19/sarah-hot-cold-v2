@@ -10,6 +10,8 @@ export default function GuessForm(props) {
             event.preventDefault()
             let inputValue = event.target.userGuess.value;
             props.newGuess(inputValue)
+
+            event.target.userGuess.value='';
         }}>
             <input type="text" name="userGuess" id="userGuess"
                 className="text" maxLength="3" autoComplete="off"
