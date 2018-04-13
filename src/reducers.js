@@ -25,13 +25,13 @@ const gameReducer = (state = initialState, action) => {
 
     const difference = Math.abs(guess - state.answer);
 
-    if (difference > 60) {
+    if (difference >= 60) {
         feedback = 'Ice cold';
-    } else if (difference > 30) {
+    } else if (difference >= 30) {
         feedback = 'Cold';
-    } else if (difference > 10) {
+    } else if (difference >= 10) {
         feedback = 'Warm';
-    } else if (difference > 5) {
+    } else if (difference >= 5) {
         feedback = 'Hot';
     } else if (difference >= 1) {
         feedback = 'On fire!!';
