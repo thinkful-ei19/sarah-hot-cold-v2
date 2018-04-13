@@ -1,17 +1,18 @@
 //list user action: make a guess, restart, click for info
 
-const MAKE_GUESS = 'MAKE_GUESS'
-export const make_guess = (guess) => ({
+export const MAKE_GUESS = 'MAKE_GUESS'
+export const make_guess = (guess, feedback) => ({
     type: MAKE_GUESS,
-    guess
+    guess,
+    feedback
 })
 
-const RESTART = 'RESTART'
+export const RESTART = 'RESTART'
 export const restart = () => ({
   type: RESTART
 })
 
-const GET_INFO = 'GET_INFO'
+export const TOGGLE_INFO = 'TOGGLE_INFO'
 export const info = () => ({
-  type: INFO
+  type: TOGGLE_INFO
 })
