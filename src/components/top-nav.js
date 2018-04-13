@@ -9,9 +9,9 @@ export default function TopNav(props) {
         <nav>
             <ul className="clearfix">
                 <li>
-                    <a onClick={(event) => {
+                    <a onClick={(event) => 
                         
-                        {props.showInfo(event)}} 
+                        {props.showInfo(event)}
                     }className="what" href="#">
                         What?
                     </a>

@@ -12,6 +12,7 @@ export default function GuessForm(props) {
             if (inputValue > 100 || inputValue < 0) {
                 alert('number must be between 0 and 100')
             }
+            
             props.newGuess(inputValue)
 
             event.target.userGuess.value='';
