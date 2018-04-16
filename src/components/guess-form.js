@@ -1,9 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import {make_guess} from '../actions';
 
 import './guess-form.css';
 
-export default function GuessForm(props) {
-    //console.log(props)
+export function GuessForm(props) {
+    console.log('guessForm:', props)
 
     return (
         <form onSubmit={(event) => {
@@ -27,4 +30,6 @@ export default function GuessForm(props) {
         </form>
     );
 };
+
+export default connect()(GuessForm);
 
