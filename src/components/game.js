@@ -19,8 +19,6 @@ function Game(props) {
     //     console.log(this.state.answer)
     // }
 
-    
-
     // makeGuess(number) {
     //     const difference = Math.abs(number - this.state.answer);
     //     console.log(difference);
@@ -92,15 +90,16 @@ return (
 
 }
 
-function mapStateToProps(state) {
-    console.log('hi');
-    return {
-    guesses: state.guesses,
-    answer: state.answer,
-    feedback: state.feedback,
-    displayInfo: state.displayInfo
-    }
-}
+// function mapStateToProps(state) {
+//     console.log('hi');
+//     return state
+//     // {
+//     // guesses,
+//     // answer,
+//     // feedback,
+//     // displayInfo
+//     // }
+// }
 
-export default connect(mapStateToProps)(Game);
+export default connect(state => state)(Game);
 

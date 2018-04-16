@@ -16,7 +16,7 @@ export function GuessForm(props) {
                 alert('number must be between 0 and 100')
             }
             
-            console.log(props.dispatch(make_guess(inputValue)))
+            props.dispatch(make_guess(inputValue))
 
             event.target.userGuess.value='';
             event.target.userGuess.focus();
@@ -32,7 +32,6 @@ export function GuessForm(props) {
 };
 
 export function mapStateToProps(state) {
-    console.log(state.count)
     return {
         // count: state.count,
         guesses: state.guesses,

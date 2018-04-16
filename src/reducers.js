@@ -13,7 +13,6 @@ const gameReducer = (state = initialState, action) => {
 
     let guess, feedback;
     guess = parseInt(action.guess, 10);
-    console.log(typeof(action.guess))
     if (isNaN(guess)) {
       feedback = 'Guess must be a number';
 
@@ -22,8 +21,7 @@ const gameReducer = (state = initialState, action) => {
       })
     }
 
-    
-
+    console.log(state.answer)
     const difference = Math.abs(guess - state.answer);
 
     if (difference >= 60) {
