@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import { info } from '../actions';
+
 import './info-modal.css';
 
 export function InfoModal(props) {
@@ -17,7 +19,11 @@ export function InfoModal(props) {
                         <li>3. You will <strong>get feedback</strong> on how close ("hot") or far ("cold") your guess is.</li>
                     </ul>
                     <p>So, Are you ready?</p>
-                    <a className="close" href="#" onClick={props.show}>Got It!</a>
+                    <a className="close" href="#" onClick={(event) => {
+                        props.dispatch(info(event))
+                        console.log('close clicked')
+                    }}
+                        >Got It!</a>
                 </div>
             </div>
         </div>

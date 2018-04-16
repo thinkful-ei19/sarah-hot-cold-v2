@@ -12,8 +12,9 @@ export function TopNav(props) {
         <nav>
             <ul className="clearfix">
                 <li>
-                    <a onClick={(event) => 
-                        props.dispatch.info(event)} 
+                    <a onClick={(event) => {
+                        props.dispatch(info(event))
+                        console.log('clicked')}} 
                         className="what" href="#">
                         What?
                     </a>
