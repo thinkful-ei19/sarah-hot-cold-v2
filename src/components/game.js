@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Header from './header';
 import GuessSection from './guess-section';
@@ -6,76 +7,100 @@ import GuessCount  from './guess-count';
 import GuessList from './guess-list';
 import InfoModal from './info-modal';
 
-class Game extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            guesses: [],
-            answer: Math.floor((Math.random() * 100) + 1),
-            feedback: 'Make your guess!',
-            displayInfo: false
-        }
-        console.log(this.state.answer)
-    }
+function Game(props) {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         guesses: [],
+    //         answer: Math.floor((Math.random() * 100) + 1),
+    //         feedback: 'Make your guess!',
+    //         displayInfo: false
+    //     }
+    //     console.log(this.state.answer)
+    // }
 
     
 
-    makeGuess(number) {
-        const difference = Math.abs(number - this.state.answer);
-        console.log(difference);
+    // makeGuess(number) {
+    //     const difference = Math.abs(number - this.state.answer);
+    //     console.log(difference);
 
-        let feedback;
-        if (difference > 60) {
-            feedback = 'Ice cold'
-        } else if (difference > 30) {
-            feedback = 'Cold'
-        } else if (difference > 10) {
-            feedback = 'Warm'
-        } else if (difference > 5) {
-            feedback = 'Hot'
-        } else if (difference >= 1) {
-            feedback = 'On fire!!'
-        } else {
-            feedback = 'You guessed it!!! Click NEW GAME to play again'
-        }
+    //     let feedback;
+    //     if (difference > 60) {
+    //         feedback = 'Ice cold'
+    //     } else if (difference > 30) {
+    //         feedback = 'Cold'
+    //     } else if (difference > 10) {
+    //         feedback = 'Warm'
+    //     } else if (difference > 5) {
+    //         feedback = 'Hot'
+    //     } else if (difference >= 1) {
+    //         feedback = 'On fire!!'
+    //     } else {
+    //         feedback = 'You guessed it!!! Click NEW GAME to play again'
+    //     }
 
-        this.setState({
-            guesses: [...this.state.guesses, number],
-            feedback
-        });
-    }
+    //     this.setState({
+    //         guesses: [...this.state.guesses, number],
+    //         feedback
+    //     });
+    // }
 
-    showInfo() {
+    // showInfo() {
         
-        this.setState({
-            displayInfo: !this.state.displayInfo
-        });
-    }
+    //     this.setState({
+    //         displayInfo: !this.state.displayInfo
+    //     });
+    // }
 
-    resetGame() {
-        this.setState({
-            guesses: [],
-            answer: Math.floor((Math.random() * 100) + 1),
-            feedback: 'Make your guess!'
-        })
-    }
+    // resetGame() {
+    //     this.setState({
+    //         guesses: [],
+    //         answer: Math.floor((Math.random() * 100) + 1),
+    //         feedback: 'Make your guess!'
+    //     })
+    // }
 
-    render() {
-        console.log(this.state.answer)
-    return (
-        <div>
-            <Header show={(event) => this.showInfo(event)} reset={(event) => this.resetGame(event)} />
-            <GuessSection feedback={this.state.feedback} add={(value) => this.makeGuess(value)} />
-            <GuessCount count={this.state.guesses.length} />
-            <GuessList guesses={this.state.guesses} />
-            {this.state.displayInfo 
-                ? <InfoModal 
-                    show={(event) => this.showInfo(event)} /> 
-                : ''}
-        </div>
-        );
+    // render() {
+    //     console.log(this.state.answer)
+//     return (
+//         <div>
+//             <Header show={(event) => this.showInfo(event)} reset={(event) => this.resetGame(event)} />
+//             <GuessSection feedback={this.state.feedback} add={(value) => this.makeGuess(value)} />
+//             <GuessCount count={this.state.guesses.length} />
+//             <GuessList guesses={this.state.guesses} />
+//             {this.state.displayInfo 
+//                 ? <InfoModal 
+//                     show={(event) => this.showInfo(event)} /> 
+//                 : ''}
+//         </div>
+//         );
+    
+// }
+
+return (
+    <div>
+        <Header />
+        <GuessSection />
+        <GuessCount />
+        <GuessList />
+        {props.displayInfo 
+            ? <InfoModal /> 
+            : ''}
+    </div>
+    );
+
+}
+
+function mapStateToProps(state) {
+    console.log('hi');
+    return {
+    guesses: state.guesses,
+    answer: state.answer,
+    feedback: state.feedback,
+    displayInfo: state.displayInfo
     }
 }
 
-export default Game
+export default connect(mapStateToProps)(Game);
 
