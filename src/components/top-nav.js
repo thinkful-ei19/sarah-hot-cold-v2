@@ -6,16 +6,15 @@ import { restart, info } from '../actions';
 import './top-nav.css';
 
 export function TopNav(props) {
-    //console.log(props)
-    console.log('topNave connected')
+    console.log(props)
+    console.log('topNav connected')
     return (
         <nav>
             <ul className="clearfix">
                 <li>
                     <a onClick={(event) => 
-                        
-                        {props.showInfo(event)}
-                    }className="what" href="#">
+                        props.dispatch.info(event)} 
+                        className="what" href="#">
                         What?
                     </a>
                 </li>
