@@ -1,9 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import './info-modal.css';
 
-export default function InfoModal(props) {
-    //console.log(props)
+export function InfoModal(props) {
+    console.log('infoModal')
     return (
         <div className="overlay" id="modal">
             <div className="content">
@@ -22,3 +23,5 @@ export default function InfoModal(props) {
         </div>
     );
 }
+
+export default connect()(InfoModal);
