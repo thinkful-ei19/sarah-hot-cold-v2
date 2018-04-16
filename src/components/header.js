@@ -9,7 +9,7 @@ export default function Header(props) {
     //console.log(props)
     return (
         <header>
-            <TopNav showInfo={props.show} newGame={props.reset}/>
+            <TopNav />
             
             <h1>HOT or COLD</h1>
         </header>
