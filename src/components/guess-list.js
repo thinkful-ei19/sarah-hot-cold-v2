@@ -18,7 +18,7 @@ export function GuessList(props) {
 };
 
 function mapStateToProps(state) {
-    console.log('guessList connected', state.props)
+    //console.log('guessList connected', state.guesses)
     return {
         guesses: state.guesses
     }

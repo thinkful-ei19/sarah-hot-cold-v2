@@ -10,10 +10,14 @@ export function GuessSection(props) {
     return (
         <section>
             <h2 id="feedback">{props.feedback}</h2>
-            <GuessForm newGuess={props.add}/>
+            <GuessForm />
         </section>
     );
 }
-
-export default connect()(GuessSection);
+function mapStateToProps(state) {
+    return {
+        feedback: state.feedback
+    }
+}
+export default connect(mapStateToProps)(GuessSection);
 

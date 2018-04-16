@@ -7,7 +7,7 @@ import './top-nav.css';
 
 export function TopNav(props) {
     console.log(props)
-    console.log('topNav connected')
+    //console.log('topNav connected')
     return (
         <nav>
             <ul className="clearfix">
@@ -21,8 +21,8 @@ export function TopNav(props) {
                 </li>
                 <li>
                     <a onClick={(event) => {
-                        console.log('clicked')
-                        props.newGame(event)
+                        console.log('restart clicked')
+                        props.dispatch(restart(event))
                     }} className="new" href="#">
                         + New Game
                     </a>

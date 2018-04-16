@@ -4,6 +4,7 @@ const initialState = {
   guesses: [],
   answer: Math.floor((Math.random() * 100) + 1),
   feedback: 'Make your guess!',
+  count: 0,
   displayInfo: false
 };
 
@@ -11,9 +12,9 @@ const gameReducer = (state = initialState, action) => {
   if(action.type === MAKE_GUESS) {
 
     let guess, feedback;
-
+    guess = parseInt(action.guess, 10);
     console.log(typeof(action.guess))
-    if (typeof(action.guess) !== 'number') {
+    if (isNaN(guess)) {
       feedback = 'Guess must be a number';
 
       return Object.assign({}, state, {
@@ -21,7 +22,7 @@ const gameReducer = (state = initialState, action) => {
       })
     }
 
-    guess = parseInt(action.guess, 10);
+    
 
     const difference = Math.abs(guess - state.answer);
 
